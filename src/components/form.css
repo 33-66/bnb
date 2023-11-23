@@ -15,13 +15,13 @@
     margin-bottom: 10px;
   }
   
-  input[type="text"],
-  input[type="email"],
-  input[type="file"],
+  /*input[type="email"],*/
+  input[type="text"], 
+ /* input[type="file"],
   input[type="date"],
-  input[type="number"],
+  input[type="number"],*/
   textarea {
-    width: 100%;
+    width: 90%;
     padding: 8px;
     margin-bottom: 15px;
     border: 1px solid #ccc;

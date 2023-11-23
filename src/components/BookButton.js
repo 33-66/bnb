@@ -7,7 +7,7 @@ function BookButton() {
         navigate ('/boking form')
     }
   return (
-    <button onClick={handleBookButton}> book now</button>
+    <button onClick={handleBookButton}> Book Now</button>
   )
 }
 
