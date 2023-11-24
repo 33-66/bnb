@@ -45,6 +45,17 @@ function resetForm(){
   return (
     <>
       <h1>Booking Form</h1>
+      <figure>
+        <img 
+        src="https://images.pexels.com/photos/4046107/pexels-photo-4046107.jpeg?auto=compress&cs=tinysrgb&w=800" 
+        alt="Try Again" 
+        style={{
+          display:"flex",
+          textAlign:"center"
+        }
+        }/>
+        
+      </figure>
       <form onSubmit={handleSubmit}>
         <label htmlFor="" style={{ marginRight: '65px' }}>
           Full Name

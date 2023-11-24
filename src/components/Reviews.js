@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import ReviewList from './ReviewList';
+//import { faAlignCenter } from '@fortawesome/free-solid-svg-icons';
 //import Footer from './Footer';
 
 const ReviewForm = () => {
+  //console.log(faAlignCenter);
   const [formData, setFormData] = useState({
     name: '',
     review: '',
@@ -49,6 +51,24 @@ const ReviewForm = () => {
   return (
     <div>
       <h2>Submit a Review</h2>
+    <figure
+      style={{
+        display:"flex",
+       justifyContent:"center",
+       marginRight:"70px"
+       //align-items:"center";
+      }
+      }
+    >
+      <img 
+      src="https://images.pexels.com/photos/4160101/pexels-photo-4160101.jpeg?auto=compress&cs=tinysrgb&w=800" 
+      alt="Try Again"
+      
+      />
+      <br />
+  
+    </figure>
+
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>

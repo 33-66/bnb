@@ -56,8 +56,18 @@ function PostingForm() {
   }
 
   return (
-    <>
+    <div style={{textAlign:"center"}}>
+
     <h1>POST YOUR PROPERTY</h1>
+      <figure>
+        <img 
+        src="https://images.pexels.com/photos/8152733/pexels-photo-8152733.jpeg?auto=compress&cs=tinysrgb&w=800" 
+        alt="Try Again" 
+        style={{marginRight:"70px"}}/>
+        <figcaption><em>Thanks for trusting us with your property</em></figcaption>
+      </figure>
+        
+      
     <form action="" onSubmit={handleSubmit}>
         <label htmlFor="">
            <strong>Name:</strong>            
@@ -178,7 +188,7 @@ function PostingForm() {
         </label>
       <button>post</button>
     </form>
-    </>
+    </div>
   );
 }
 

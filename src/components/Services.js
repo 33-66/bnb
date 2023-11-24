@@ -39,8 +39,8 @@ const Services = () => {
                 src={item.image}
                 alt={item.name}
                 style={{ 
-                  maxHeight:"500px",
-                  maxWidth:"500PX",
+                  maxHeight:"800px",
+                  maxWidth:"800PX",
                   marginTop: '10px',
                   border: '1px solid #ddd', 
               

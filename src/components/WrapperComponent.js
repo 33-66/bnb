@@ -1,11 +1,12 @@
 // WrapperComponent.js
 import React from 'react';
-import Services from './Services';
+//import Services from './Services';
+import App from '../App'; 
 
 const WrapperComponent = () => {
   return (
-    <div style={{ backgroundColor: 'slategrey', padding: '20px' }}>
-      <Services />
+    <div style={{ backgroundColor: 'silver', padding: '20px' }}>
+      <App/>
     </div>
   );
 };

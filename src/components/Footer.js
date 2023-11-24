@@ -22,7 +22,7 @@ function Footer() {
 }
 
 const footerStyle = {
-  background: 'beige',
+  background: 'grey',
   padding: '20px',
   textAlign:'center'
   

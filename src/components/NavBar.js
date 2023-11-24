@@ -5,7 +5,7 @@ import { faHome, faBuilding, faClipboard, faComment } from '@fortawesome/free-so
 
 function NavBar() {
   const styles = {
-    background: 'beige',
+    background: 'grey',
     padding: '20px',
     display: 'flex',
     alignItems: 'center',
