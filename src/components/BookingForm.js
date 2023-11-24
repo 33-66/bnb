@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import './form.css';
 
 function BookingForm() {
-  const [inputData, setInput] = useState({
+  const initialInputData={
     fullname: '',
     email: '',
     checkIndate: '',
     checkOutdate: '',
     numOfVisitors: 1,
     expectations: '',
-  });
-
+  };
+  const [inputData, setInput] =useState(initialInputData)
   function handleChange(e) {
     setInput({
       ...inputData,
@@ -35,8 +35,12 @@ function BookingForm() {
 
     setTimeout(() => {
       alertMe();
+      resetForm()
     }, 1000);
   }
+function resetForm(){
+  setInput(initialInputData)
+}
 
   return (
     <>
