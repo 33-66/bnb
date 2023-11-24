@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import ReviewList from './ReviewList';
+//import Footer from './Footer';
 
 const ReviewForm = () => {
   const [formData, setFormData] = useState({
@@ -17,7 +19,7 @@ const ReviewForm = () => {
     e.preventDefault();
 
    
-    const apiUrl = 'https://bot-api-7sh5.onrender.com/Reviews';
+    const apiUrl = 'https://bnb-api-pkhn.onrender.com/Reviews';
 
     fetch(apiUrl, {
       method: 'POST',
@@ -40,7 +42,8 @@ const ReviewForm = () => {
       })
       .catch((error) => {
         console.error('Error submitting review:', error);
-      });
+      })
+      
   };
 
   return (
@@ -67,9 +70,12 @@ const ReviewForm = () => {
             onChange={handleChange}
             required
           />
+          
         </div>
-        <button type="submit">Submit Review</button>
+        <button type='submit' >Submit Review</button>
       </form>
+      <ReviewList />
+  
     </div>
   );
 };

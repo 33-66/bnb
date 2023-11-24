@@ -4,7 +4,7 @@ const ReviewList = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    const apiUrl = 'http://localhost:3000/reviews';
+    const apiUrl = 'https://bnb-api-pkhn.onrender.com/Reviews';
 
     fetch(apiUrl)
       .then((response) => {

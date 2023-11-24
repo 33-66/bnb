@@ -1,62 +1,62 @@
 import React, { useState } from 'react';
+import BookButton from './BookButton';
 
 const SearchBar = ({ data }) => {
     const [input, setInput] = useState('');
     const [filteredData, setFilteredData] = useState([]);
+    const [searchMessage, setSearchMessage] = useState('');
 
     const handleSearch = () => {
         const searchTerm = input.toLowerCase();
-        // Check if the search term is empty before filtering
+
         if (searchTerm.trim() === '') {
-            setFilteredData([]); // Reset filteredData if search term is empty
+            setFilteredData([]);
+            setSearchMessage('');
         } else {
             const filtering = data.filter((item) =>
-                item.Adress.toLowerCase().includes(searchTerm)
+                (item.Adress || '').toLowerCase().includes(searchTerm)
             );
+
+            if (filtering.length === 0) {
+                setSearchMessage("Sorry, we don't have houses in that region! Try another address.");
+            } else {
+                setSearchMessage(`Showing ${filtering.length} result(s).`);
+            }
+
             setFilteredData(filtering);
         }
     };
-
-    const handleChange = (e) => {
-        setInput(e.target.value);
-    };
-
-    const uniqueAddresses = [...new Set(data.map((item) => item.Adress))];
 
     return (
         <div>
             <input
                 type="text"
-                placeholder="Search by BnB Address"
+                placeholder="Search..."
                 value={input}
-                onChange={handleChange}
+                onChange={(e) => setInput(e.target.value)}
             />
             <button onClick={handleSearch}>Search</button>
-
-            {uniqueAddresses.map((address) => (
-                <div key={address}>
-                    
-                    <ul>
-                        {filteredData
-                            .filter((item) => item.Adress.toLowerCase() === address.toLowerCase())
-                            .map((item) => (
-                                <li key={item.id}>
-                                    <strong>Name:</strong> {item.name} <br />
-                                    {item.image && (
-                                        <img
-                                            src={item.image}
-                                            alt={item.name}
-                                            style={{ maxWidth: '500px', maxHeight: '500px' }}
-                                        />
-                                    )}
-                                    <strong>Description:</strong> {item.Beds} <br />
-                                    <strong>Address:</strong> {item.Adress} <br />
-                                    <strong>Status:</strong> {item.Status} <br />
-                                </li>
-                            ))}
-                    </ul>
-                </div>
-            ))}
+            <ul>
+                {filteredData.map((item) => (
+                    <li key={item.id}>
+                        <strong>Name:</strong> {item.name} <br />
+                        {item.image && (
+                            <img
+                                src={item.image}
+                                alt={item.name}
+                                style={{ maxWidth: '500px', maxHeight: '500px' }}
+                            />
+                        )}
+                        <br />
+                        <strong>Bedrooms:</strong> {item.Bedroom} <br />
+                        <strong>Bathrooms:</strong> {item.Bathrooms} <br />
+                        <strong>Address:</strong> {item.Adress} <br />
+                        <strong>Status:</strong> {item.Status} <br />
+                        <BookButton />
+                    </li>
+                ))}
+            </ul>
+           <strong>{searchMessage && <p>{searchMessage}</p>}</strong> 
         </div>
     );
 };

@@ -1,41 +1,63 @@
-import React ,{useState}  from 'react'
+import React, { useState } from 'react';
 
 function PostingForm() {
- const [inputData , setInputData] = useState({
-  name:"",
- Image:null,
- Description:"",
- Adress:"",
- Bedrooms:1,
- Beds:1,
- Bathrooms:1,
- status:"Choose",
- AOB:""
- })
-   function handleChange(e){
-   const {name ,value ,type ,files} = e.target
-if(type === "file"){
-    setInputData((prevData)=>({
-      ...prevData,
-        [name]:files[0],
+  const [inputData, setInputData] = useState({
+    name: "",
+    Image: null,
+    Description: "",
+    Adress: "",
+    Bedrooms: 1,
+    Beds: 1,
+    Bathrooms: 1,
+    status: "Choose",
+    AOB: ""
+  });
 
-    }))
-}  else{
-    setInputData((prevData)=>({
+  function handleChange(e) {
+    const { name, value, type, files } = e.target;
+    if (type === "file") {
+      setInputData((prevData) => ({
         ...prevData,
-        [name]:value,
-    }))
-}
-   }
-function handleSubmit(e){
-console.log("Form data:",inputData);
-alert("Form submitted succesfully")
-}
+        [name]: files[0],
+      }));
+    } else {
+      setInputData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
+  }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    // Assuming your JSON server is running on http://localhost:3000
+    const apiUrl = 'https://bnb-api-pkhn.onrender.com/Rooms';
+
+    fetch(apiUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputData),
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log('Property data submitted successfully');
+          alert('Property data submitted successfully');
+        } else {
+          console.error('Failed to submit property data');
+          alert('Failed to submit property data');
+        }
+      })
+      .catch((error) => {
+        console.error('Error submitting property data:', error);
+        alert('Error submitting property data');
+      });
+  }
 
   return (
     <>
-    <h1>POST YOUR PROJECT</h1>
+    <h1>POST YOUR PROPERTY</h1>
     <form action="" onSubmit={handleSubmit}>
         <label htmlFor="">
            <strong>Name:</strong>            
@@ -49,7 +71,7 @@ alert("Form submitted succesfully")
             />
         </label>
          <label htmlFor="">
-         <strong>Image:</strong>
+         <strong>image:</strong>
             <input 
             type="file"
             accept='image' 
@@ -157,7 +179,7 @@ alert("Form submitted succesfully")
       <button>post</button>
     </form>
     </>
-  )
+  );
 }
 
-export default PostingForm 
+export default PostingForm;

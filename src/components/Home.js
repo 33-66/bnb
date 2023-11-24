@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Footer from './Footer';
+//import Footer from './Footer';
 
 function Home() {
 const link =  <a href="https://www.vrbo.com/?">link</a>    
@@ -26,7 +26,7 @@ const link =  <a href="https://www.vrbo.com/?">link</a>
             src="https://images.pexels.com/photos/1438832/pexels-photo-1438832.jpeg?auto=compress&cs=tinysrgb&w=1000&h=750&dpr=100px.jpg
             "
             alt="Try Again"
-            padding
+          
           />
         </figure>
         <div>
@@ -41,9 +41,9 @@ We serves as an inclusive platform connecting travelers with a rich array of acc
         </div>
       </section>
       <div><p>In this project we have a  few  <span onClick={navigateToList} style={{color:"blue"}}><em>list</em></span> of BnBs and also you are allowing You to <span onClick={navigateToPost} style={{color:"blue"}}><em>post</em></span> your own  BnBs.However,all BnBs may not be there therefore you can use this <em>{link}</em>to search for more. 
-    also u can <span onClick={navigateToReviews}style={{color:"blue"}}> <em>review us</em></span>
+    Also you can <span onClick={navigateToReviews}style={{color:"blue"}}> <em>review us</em></span> to help us improve.
    </p></div>
-   < Footer />
+  
     </>
   );
 }
